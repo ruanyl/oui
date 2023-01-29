@@ -9,7 +9,7 @@
  * GitHub history for details.
  */
 
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import {
   OuiOverlayMask,
@@ -21,16 +21,25 @@ import {
 export default () => {
   const [maskOpen, changeMask] = useState(false);
   const [maskWithClickOpen, changeMaskWithClick] = useState(false);
+  const [count, setCount] = useState(0);
+
+  const onClick = useCallback(() => {
+    changeMask(false);
+    console.log('onClick is called with count: ', count);
+  }, [count]);
 
   const modal = (
     <React.Fragment>
-      <OuiOverlayMask
-        onClick={() => {
-          changeMask(false);
-        }}>
+      <OuiOverlayMask onClick={onClick}>
         <OuiTitle>
           <h2> Click anywhere to close overlay. </h2>
         </OuiTitle>
+        <OuiButton
+          onClick={() => {
+            setCount(count + 1);
+          }}>
+          Increase {count}
+        </OuiButton>
       </OuiOverlayMask>
     </React.Fragment>
   );
