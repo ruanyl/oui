@@ -1,5 +1,7 @@
 # V9 Theme Modernization Spec
 
+> **Important Note**: This spec documents the modernization work that transformed the original v9 theme into what is now the **v10 theme**. The modernization output described in this document is available as the v10 theme (`v10-light` and `v10-dark`), while the original v9 theme has been preserved and remains available as v9 (`v9-light` and `v9-dark`). Users can choose between the original v9 design and the modernized v10 design.
+
 ## Overview
 
 This spec defines the modernization of the OpenSearch UI (OUI) v9 theme to achieve a contemporary, shadcn-like aesthetic. The modernization focuses on updating design tokens (border radius, shadows, typography, spacing, **colors**) and component variables to create a cleaner, more professional look without requiring a full migration.

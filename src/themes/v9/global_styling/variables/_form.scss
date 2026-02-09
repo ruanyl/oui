@@ -15,17 +15,12 @@ $ouiFormControlHeight: $ouiSizeXXL !default;
 $ouiFormControlCompressedHeight: $ouiSizeXL !default;
 $ouiFormControlPadding: $ouiSizeM !default;
 $ouiFormControlCompressedPadding: $ouiSizeS !default;
-$ouiFormControlBorderRadius: $ouiBorderRadiusSmall !default;
-$ouiFormControlCompressedBorderRadius: $ouiBorderRadiusSmall !default;
+$ouiFormControlBorderRadius: 0 !default;
+$ouiFormControlCompressedBorderRadius: 2px !default;
 
 $ouiRadioSize: $ouiSize !default;
 $ouiCheckBoxSize: $ouiSize !default;
-$ouiCheckboxBorderRadius: $ouiBorderRadiusSmall !default;
-
-// Add transition support
-$ouiFormControlTransition: border-color $ouiAnimSpeedFast $ouiAnimEaseInOut,
-                           box-shadow $ouiAnimSpeedFast $ouiAnimEaseInOut,
-                           background-color $ouiAnimSpeedFast $ouiAnimEaseInOut !default;
+$ouiCheckboxBorderRadius: $ouiBorderRadius !default;
 
 // Switch
 $ouiSwitchHeight: $ouiSize * 1.25 !default;
@@ -106,7 +101,6 @@ $euiFormControlCompressedBorderRadius: $ouiFormControlCompressedBorderRadius;
 $euiRadioSize: $ouiRadioSize;
 $euiCheckBoxSize: $ouiCheckBoxSize;
 $euiCheckboxBorderRadius: $ouiCheckboxBorderRadius;
-$euiFormControlTransition: $ouiFormControlTransition;
 $euiSwitchHeight: $ouiSwitchHeight;
 $euiSwitchWidth: $ouiSwitchWidth;
 $euiSwitchThumbSize: $ouiSwitchThumbSize;

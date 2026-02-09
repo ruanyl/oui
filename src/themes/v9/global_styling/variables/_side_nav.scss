@@ -12,33 +12,30 @@
 // Value not currently consumed by Side nav component
 $ouiSideNavBackgroundColor: $ouiColorEmptyShade !default; // sass-lint:disable-line no-color-literals
 
-// Spacing
-$ouiSideNavItemPadding: $ouiSizeXS !default;                   // 8px padding
-$ouiSideNavItemBorderRadius: 0 $ouiBorderRadiusSmall $ouiBorderRadiusSmall 0 !default;  // 6px rounded
-$ouiSideNavItemSpacing: $ouiSizeM !default;                   // 12px between items
+$ouiSideNavEmphasizedBackgroundColor: transparentize($ouiColorPrimary, .8) !default;
 
-// Selection - Subtle background with accent bar
-$ouiSideNavSelectedBackground: transparentize($ouiColorPrimary, 0.92) !default;
-$ouiSideNavSelectedAccentWidth: 2px !default;
-$ouiSideNavSelectedAccentHeight: 100% !default;
+// Spacing - original v9 values
+$ouiSideNavItemPadding: calc($ouiSizeXS / 2) !default;        // 4px padding (original)
+$ouiSideNavItemBorderRadius: 0 !default;                      // No border radius (original)
+$ouiSideNavItemSpacing: $ouiSizeS !default;                   // 8px between items (original)
 
-// Hover states
-$ouiSideNavHoverBackground: transparentize($ouiColorLightShade, 0.6) !default;
-$ouiSideNavActiveBackground: transparentize($ouiColorLightShade, 0.3) !default;
+// Selection - original v9 emphasized background
+$ouiSideNavSelectedBackground: $ouiSideNavEmphasizedBackgroundColor !default;
+$ouiSideNavSelectedAccentWidth: 0 !default;                   // No accent bar (original)
+$ouiSideNavSelectedAccentHeight: 0 !default;                  // No accent bar (original)
 
-// Transitions
-$ouiSideNavTransition: background-color $ouiAnimSpeedFast $ouiAnimEaseInOut,
-                       color $ouiAnimSpeedFast $ouiAnimEaseInOut,
-                       transform $ouiAnimSpeedFast $ouiAnimEaseInOut !default;
+// Hover states - original v9 (no special hover background)
+$ouiSideNavHoverBackground: transparent !default;
+$ouiSideNavActiveBackground: transparent !default;
 
-// Branch indicators - Modern styling
-$ouiSideNavBranchLineWidth: 2px !default;                     // Thicker line
-$ouiSideNavBranchLineColor: transparentize($ouiBorderColor, 0.5) !default;
-$ouiSideNavBranchTickWidth: $ouiSizeS !default;               // Longer tick
-$ouiSideNavBranchTickHeight: 2px !default;                    // Thicker tick
+// Transitions - basic transition for v9
+$ouiSideNavTransition: none !default;
 
-// Update emphasized background to be more subtle
-$ouiSideNavEmphasizedBackgroundColor: transparentize($ouiColorPrimary, 0.95) !default; // was .8
+// Branch indicators - original v9 styling
+$ouiSideNavBranchLineWidth: 1px !default;                     // Original thin line
+$ouiSideNavBranchLineColor: $ouiBorderColor !default;         // Original color
+$ouiSideNavBranchTickWidth: $ouiSizeXS !default;              // Original tick width
+$ouiSideNavBranchTickHeight: 1px !default;                    // Original thin tick
 
 // Simulates the transparent backround on top of the page background to get an opaque color
 // in order to get the right contrast for text

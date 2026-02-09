@@ -9,33 +9,32 @@
  * GitHub history for details.
  */
 
-// Badge variables
+// Badge variables for v9 theme (original values)
 
-// Border radius
-$ouiBadgeBorderRadius: $ouiBorderRadiusLarge !default; // 12px
+// Border radius - using original v9 style (half of border radius)
+$ouiBadgeBorderRadius: calc($ouiBorderRadius / 2) !default; // 2px in original v9
 
-// Padding
-$ouiBadgePaddingHorizontal: 10px !default;
-$ouiBadgePaddingVertical: 2px !default;
+// Padding - original v9 values
+$ouiBadgePaddingHorizontal: $ouiSizeS !default; // 8px
+$ouiBadgePaddingVertical: 0 !default;
 
-// Sizing
-$ouiBadgeMinHeight: 22px !default;
+// Sizing - original v9 values
+$ouiBadgeMinHeight: $ouiSize + 2px !default; // 18px (accounts for border)
 
-// Typography
+// Typography - original v9 values
 $ouiBadgeFontSize: $ouiFontSizeXS !default; // 12px
-$ouiBadgeFontWeight: $ouiFontWeightRegular !default; // 400
-$ouiBadgeLineHeight: 1.5 !default;
+$ouiBadgeFontWeight: $ouiFontWeightMedium !default; // 500
+$ouiBadgeLineHeight: $ouiSize + 2px !default; // 18px (accounts for border)
 
-// Transitions
-$ouiBadgeTransition: background-color $ouiAnimSpeedFast $ouiAnimEaseInOut,
-                     border-color $ouiAnimSpeedFast $ouiAnimEaseInOut,
-                     color $ouiAnimSpeedFast $ouiAnimEaseInOut,
-                     box-shadow $ouiAnimSpeedFast $ouiAnimEaseInOut !default;
+// Transitions - basic transition for v9
+$ouiBadgeTransition: background-color 150ms ease-in,
+                     border-color 150ms ease-in,
+                     color 150ms ease-in !default;
 
-// Border colors
-$ouiBadgeHollowBorderColor: transparentize($ouiBorderColor, 0.3) !default;
+// Border colors - original v9 style
+$ouiBadgeHollowBorderColor: $ouiBorderColor !default;
 
-// Icon spacing
+// Icon spacing - original v9 value
 $ouiBadgeIconSpacing: $ouiSizeXS !default; // 4px
 
 

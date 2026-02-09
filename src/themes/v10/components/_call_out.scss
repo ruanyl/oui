@@ -9,7 +9,7 @@
  * GitHub history for details.
  */
 
-// V9 Theme-specific CallOut modernization overrides
+// V10 Theme-specific CallOut modernization overrides
 
 .ouiCallOut {
   padding: calc($ouiSize * 1.25); // 20px for better breathing room
@@ -46,7 +46,7 @@
   }
 }
 
-// Update color modifiers for v9 theme
+// Update color modifiers for v10 theme
 @each $name, $color in $ouiCallOutTypes {
   .ouiCallOut--#{$name} {
     // Modern border with subtle opacity

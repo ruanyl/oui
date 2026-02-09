@@ -20,7 +20,7 @@
   $ouiDataGridStripeBackground: transparentize($ouiColorLightShade, 0.8) !global;
 }
 
-// Override headerShade style to keep headers clean in v9 theme
+// Override headerShade style to keep headers clean in v10 theme
 @include ouiDataGridStyles(headerShade) {
   @include ouiDataGridHeaderCell {
     background: $ouiDataGridHeaderBackground; // Use clean background
@@ -34,7 +34,7 @@
   }
 }
 
-// V9 theme modernization - Bottom corner border radius
+// V10 theme modernization - Bottom corner border radius
 // Since DataGrid is virtualized, we apply border-radius to corner cells
 // This will clip cell backgrounds to match the container's rounded corners
 @if variable-exists(ouiDataGridBorderRadius) {

@@ -9,7 +9,7 @@
  * GitHub history for details.
  */
 
-// V9 theme: Modernize breadcrumbs with updated colors and smooth transitions
+// V10 theme: Modernize breadcrumbs with updated colors and smooth transitions
 
 // Keep skewed design, add smooth transitions
 .ouiBreadcrumbWrapper {
@@ -28,7 +28,7 @@
   transition: color $ouiAnimSpeedFast $ouiAnimEaseInOut;
 }
 
-// Update last breadcrumb to use semibold weight (consistent with v9 theme)
+// Update last breadcrumb to use semibold weight (consistent with v10 theme)
 .ouiBreadcrumbs:not(.ouiBreadcrumbs__inPopover) .ouiBreadcrumbWrapper--last .ouiBreadcrumb {
   font-weight: $ouiFontWeightRegular;              // 400 instead of 500
 }
