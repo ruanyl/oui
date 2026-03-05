@@ -28,6 +28,40 @@ $ouiSideNavBranchTextcolor: ouiSideNavEmphasizedContrast($ouiTextSubduedColor) !
 $ouiSideNavSelectedTextcolor: ouiSideNavEmphasizedContrast($ouiColorPrimary) !default;
 $ouiSideNavDisabledTextcolor: ouiSideNavEmphasizedContrast($ouiButtonColorDisabledText, $ouiContrastRatioDisabled) !default;
 
+// Compact spacing variables
+$ouiSideNavItemPaddingVertical: 5px !default;
+$ouiSideNavItemPaddingHorizontal: 10px !default;
+$ouiSideNavItemSpacing: 2px !default;
+$ouiSideNavSectionSpacing: 6px !default;
+$ouiSideNavIconSpacing: 7px !default;
+
+// Indentation values
+$ouiSideNavIndentTrunk: 10px !default;
+$ouiSideNavIndentBranch: 12px !default;
+
+// Minimum touch targets
+$ouiSideNavMinHeightDesktop: 32px !default;
+$ouiSideNavMinHeightMobile: 44px !default;
+
+// Hover state variables
+$ouiSideNavHoverTransition: 150ms !default;
+
+// V9 theme-specific hover state variables
+$ouiSideNavHoverBackground: rgba($ouiColorPrimary, 0.06) !default;
+
+// V9 theme-specific selected state variables
+$ouiSideNavSelectedBackground: rgba($ouiColorPrimary, 0.04) !default;
+$ouiSideNavAccentBarWidth: 2px !default;
+$ouiSideNavAccentBarColor: $ouiColorPrimary !default;
+
+// Visual styling variables
+$ouiSideNavBorderRadius: 2px !default;
+$ouiSideNavLineHeight: 1.3 !default;
+
+// Animation variables
+$ouiSideNavExpansionDuration: 250ms !default;
+$ouiSideNavExpansionEasing: cubic-bezier(0.4, 0, 0.2, 1) !default;
+
 
 /* OUI -> EUI Aliases */
 $euiSideNavBackgroundColor: $ouiSideNavBackgroundColor;
@@ -36,5 +70,23 @@ $euiSideNavRootTextcolor: $ouiSideNavRootTextcolor;
 $euiSideNavBranchTextcolor: $ouiSideNavBranchTextcolor;
 $euiSideNavSelectedTextcolor: $ouiSideNavSelectedTextcolor;
 $euiSideNavDisabledTextcolor: $ouiSideNavDisabledTextcolor;
+$euiSideNavItemPaddingVertical: $ouiSideNavItemPaddingVertical;
+$euiSideNavItemPaddingHorizontal: $ouiSideNavItemPaddingHorizontal;
+$euiSideNavItemSpacing: $ouiSideNavItemSpacing;
+$euiSideNavSectionSpacing: $ouiSideNavSectionSpacing;
+$euiSideNavIconSpacing: $ouiSideNavIconSpacing;
+$euiSideNavIndentTrunk: $ouiSideNavIndentTrunk;
+$euiSideNavIndentBranch: $ouiSideNavIndentBranch;
+$euiSideNavMinHeightDesktop: $ouiSideNavMinHeightDesktop;
+$euiSideNavMinHeightMobile: $ouiSideNavMinHeightMobile;
+$euiSideNavHoverBackground: $ouiSideNavHoverBackground;
+$euiSideNavHoverTransition: $ouiSideNavHoverTransition;
+$euiSideNavSelectedBackground: $ouiSideNavSelectedBackground;
+$euiSideNavAccentBarWidth: $ouiSideNavAccentBarWidth;
+$euiSideNavAccentBarColor: $ouiSideNavAccentBarColor;
+$euiSideNavBorderRadius: $ouiSideNavBorderRadius;
+$euiSideNavLineHeight: $ouiSideNavLineHeight;
+$euiSideNavExpansionDuration: $ouiSideNavExpansionDuration;
+$euiSideNavExpansionEasing: $ouiSideNavExpansionEasing;
 @function euiSideNavEmphasizedContrast($textColor, $ratio: $ouiContrastRatioText) { @return ouiSideNavEmphasizedContrast($textColor, $ratio); }
 /* End of Aliases */

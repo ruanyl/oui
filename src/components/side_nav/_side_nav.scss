@@ -9,6 +9,24 @@
  * GitHub history for details.
  */
 
+.ouiSideNav {
+  // Spacing custom properties
+  --oui-side-nav-item-padding-vertical: #{$ouiSideNavItemPaddingVertical};
+  --oui-side-nav-item-padding-horizontal: #{$ouiSideNavItemPaddingHorizontal};
+  --oui-side-nav-item-spacing: #{$ouiSideNavItemSpacing};
+  --oui-side-nav-section-spacing: #{$ouiSideNavSectionSpacing};
+  
+  // Visual state custom properties
+  --oui-side-nav-hover-background: #{$ouiSideNavHoverBackground};
+  --oui-side-nav-selected-background: #{$ouiSideNavSelectedBackground};
+  --oui-side-nav-accent-bar-width: #{$ouiSideNavAccentBarWidth};
+  --oui-side-nav-border-radius: #{$ouiSideNavBorderRadius};
+  
+  // Animation custom properties
+  --oui-side-nav-transition-duration: #{$ouiSideNavHoverTransition};
+  --oui-side-nav-expansion-duration: #{$ouiSideNavExpansionDuration};
+}
+
 // These mobile children are hidden in everything but mobile view.
 .ouiSideNav__mobileToggle {
   height: auto;

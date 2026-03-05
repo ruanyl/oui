@@ -14,6 +14,10 @@
  * 2. Color the text at the item level and then have the button inherit so overrides are easier
  * 3. Enable ellipsis overflow to work (https://css-tricks.com/flexbox-truncated-text/)
  * 4. Restrict the underline to the button __label so it doesn't affect other components that might live within
+ * 5. Compact spacing with minimum touch targets
+ * 6. Subtle hover state with smooth transition
+ * 7. Modern selected state with accent bar
+ * 8. Accessible focus state
  */
 
 
@@ -22,19 +26,32 @@
   text-align: left; /* 1 */
   display: block;
   width: 100%;
-  padding: calc($ouiSizeXS / 2) 0;
+  padding: var(--oui-side-nav-item-padding-vertical, $ouiSideNavItemPaddingVertical) 0;
   color: inherit; /* 2 */
+  line-height: $ouiSideNavLineHeight; /* 5 */
+  min-height: $ouiSideNavMinHeightDesktop; /* 5 */
+  position: relative;
+  transition: background-color $ouiSideNavHoverTransition ease-in-out; /* 6 */
+
+  // Mobile touch target size
+  @include ouiBreakpoint('xs', 's') {
+    min-height: $ouiSideNavMinHeightMobile; /* 5 */
+  }
 
   &.ouiSideNavItemButton--isClickable:not(:disabled) {
     &:hover {
       cursor: pointer;
+      background-color: $ouiSideNavHoverBackground; /* 6 */
+      border-radius: $ouiSideNavBorderRadius; /* 6 */
     }
 
-    &:hover,
     &:focus {
+      border-radius: $ouiSideNavBorderRadius; /* 8 */
+      transition: outline $ouiSideNavHoverTransition ease-in-out; /* 8 */
+
       .ouiSideNavItemButton__label {
         // A lingering focus will stay underlined even if it doesn't get the `isSelected` prop
-        text-decoration: underline; /* 4 */
+        text-decoration: none; /* 4 */
       }
     }
   }
@@ -42,9 +59,23 @@
   &.ouiSideNavItemButton-isSelected {
     color: $ouiSideNavSelectedTextcolor;
     font-weight: $ouiFontWeightBold;
+    background-color: $ouiSideNavSelectedBackground; /* 7 */
+    border-radius: $ouiSideNavBorderRadius; /* 7 */
+
+    // Accent bar on left edge
+    &::before { /* 7 */
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: $ouiSideNavAccentBarWidth;
+      background-color: $ouiSideNavAccentBarColor;
+      border-radius: $ouiSideNavBorderRadius;
+    }
 
     .ouiSideNavItemButton__label {
-      text-decoration: underline; /* 4 */
+      text-decoration: none; // Clean modern design without underline
     }
   }
 
@@ -55,11 +86,20 @@
 
 .ouiSideNavItemButton__content {
   display: flex;
-  align-items: center;
+  align-items: center; // Ensure proper vertical alignment of icons with text
 }
 
 .ouiSideNavItemButton__icon {
-  margin-right: $ouiSizeS;
+  margin-right: $ouiSideNavIconSpacing;
+  flex-shrink: 0; // Prevent icon from shrinking
+  display: flex;
+  align-items: center;
+
+  // Ensure consistent icon sizing (16-20px range)
+  .ouiIcon {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .ouiSideNavItemButton__labelContainer {
@@ -83,16 +123,17 @@
    * 1. Create padding around focus area without indenting the item itself.
    */
   & > .ouiSideNavItemButton {
-    margin-bottom: $ouiSizeS;
+    margin-bottom: var(--oui-side-nav-item-spacing, $ouiSideNavItemSpacing);
     padding: 0;
-    padding-left: $ouiSizeS; /* 1 */
-    padding-right: $ouiSizeS; /* 1 */
-    margin-left: -$ouiSizeS; /* 1 */
-    width: calc(100% + #{$ouiSizeS * 2}); /* 1 */
+    padding-left: var(--oui-side-nav-item-padding-horizontal, $ouiSideNavItemPaddingHorizontal); /* 1 */
+    padding-right: var(--oui-side-nav-item-padding-horizontal, $ouiSideNavItemPaddingHorizontal); /* 1 */
+    // margin-left: calc(-1 * var(--oui-side-nav-item-padding-horizontal, $ouiSideNavItemPaddingHorizontal)); /* 1 */
+    width: calc(100% + var(--oui-side-nav-item-padding-horizontal, #{$ouiSideNavItemPaddingHorizontal})); /* 1 */
 
     .ouiSideNavItemButton__label {
       @include ouiTitle('xs');
       color: inherit;
+      line-height: $ouiSideNavLineHeight; // Ensure consistent compact line height for root items
     }
   }
 
@@ -106,7 +147,7 @@
   }
 
   & + & {
-    margin-top: $ouiSizeXL;
+    margin-top: var(--oui-side-nav-section-spacing, $ouiSideNavSectionSpacing);
   }
 }
 
@@ -117,61 +158,31 @@
    * 1. Create padding around focus area without indenting the item itself.
    */
   & > .ouiSideNavItemButton {
-    padding-left: $ouiSizeS; /* 1 */
-    padding-right: $ouiSizeS; /* 1 */
-    margin-left: -$ouiSizeS; /* 1 */
-    width: calc(100% + #{$ouiSizeS * 2}); /* 1 */
+    padding-left: var(--oui-side-nav-item-padding-horizontal, $ouiSideNavItemPaddingHorizontal); /* 1 */
+    padding-right: var(--oui-side-nav-item-padding-horizontal, $ouiSideNavItemPaddingHorizontal); /* 1 */
+    // margin-left: calc(-1 * var(--oui-side-nav-item-padding-horizontal, $ouiSideNavItemPaddingHorizontal)); /* 1 */
+    width: calc(100% + var(--oui-side-nav-item-padding-horizontal, #{$ouiSideNavItemPaddingHorizontal})); /* 1 */
   }
 
   & > .ouiSideNavItem__items {
-    margin-left: $ouiSizeS;
+    margin-left: $ouiSideNavIndentTrunk;
     width: 100%;
   }
 }
 
 .ouiSideNavItem--branch {
   /**
-  * 1. Draw the vertical line to group an expanded item's child items together.
+  * Clean modern design without visual connectors
   */
-  position: relative;
   color: $ouiSideNavBranchTextcolor; /* 2 */
 
-  &::after { /* 1 */
-    position: absolute;
-    content: '';
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: $ouiBorderColor;
-    left: 0;
-  }
-
-  // If this is actually the last item, we don't want the vertical line to stretch all the way down
-  &:last-of-type::after {
-    height: $ouiSizeM;
-  }
-
-  /**
-   * 2. Absolutely position the horizontal tick connecting the item to the vertical line.
-   */
   & > .ouiSideNavItemButton {
-    position: relative; /* 2 */
-    padding-left: $ouiSizeS;
-    padding-right: $ouiSizeS; /* 2 */
-
-    &:after {
-      position: absolute; /* 2 */
-      content: '';
-      top: $ouiSizeM;
-      left: 0;
-      width: $ouiSizeXS;
-      height: 1px;
-      background: $ouiBorderColor;
-    }
+    padding-left: var(--oui-side-nav-item-padding-horizontal, $ouiSideNavItemPaddingHorizontal);
+    padding-right: var(--oui-side-nav-item-padding-horizontal, $ouiSideNavItemPaddingHorizontal);
   }
 
   & > .ouiSideNavItem__items {
-    margin-left: $ouiSize;
+    margin-left: $ouiSideNavIndentBranch;
   }
 }
 
@@ -189,5 +200,48 @@
   .ouiSideNavItem--emphasized {
     background: transparent;
     box-shadow: none;
+  }
+}
+
+/**
+ * Expansion/collapse animation
+ * 1. Smooth height transition for expansion/collapse
+ * 2. Prevent layout shift during animation
+ */
+.ouiSideNavItem__items {
+  overflow: hidden; /* 2 */
+  transition: height $ouiSideNavExpansionDuration $ouiSideNavExpansionEasing; /* 1 */
+}
+
+/**
+ * Chevron rotation animation
+ * 1. Apply smooth rotation transition synchronized with expansion animation
+ * 2. Rotate chevron icon when item is open
+ */
+.ouiSideNavItemButton__content > .ouiIcon {
+  transition: transform $ouiSideNavExpansionDuration $ouiSideNavExpansionEasing; /* 1 */
+}
+
+/**
+ * Reduced motion support
+ * Requirement 5.5: Disable all transitions and animations when user prefers reduced motion
+ */
+@media (prefers-reduced-motion: reduce) {
+  .ouiSideNavItemButton {
+    transition: none;
+
+    &.ouiSideNavItemButton--isClickable:not(:disabled) {
+      &:focus {
+        transition: none;
+      }
+    }
+  }
+
+  .ouiSideNavItem__items {
+    transition: none;
+  }
+
+  .ouiSideNavItemButton__content > .ouiIcon {
+    transition: none;
   }
 }
